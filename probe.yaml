@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webapplication
+  labels:
+    app: web 
+spec:
+  containers:
+  - name: webserver
+    image: alpine
+      args:
+      - /bin/sh
+      - -c
+      - touch /tmp/shelltest; sleep 30; rm -rf /tmp/shelltest; sleep 300
+    ports:
+    - containerPort: 80
+      livenessProbe:
+        exec:
+          command: 
+          - cat
+          - /tmp/shelltest
+        initialDelayseconds: 5
+        periodSeconds: 5

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Services
+metadata:
+  name: ngiinx-clusterip
+spec: 
+  type: ClusterIP
+  selector: 
+    app: nginx
+  ports:
+  - port: 8010
+    targetPort: 80
