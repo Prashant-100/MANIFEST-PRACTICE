@@ -14,7 +14,7 @@ kubectl get pods
 kubectl get pod
 kubectl get pods -o wide
 
-kubectl describe <podname>
+kubectl describe  pods <podname>
 
 kubectl get pods --all-namespace
 kubectl get namespace 
