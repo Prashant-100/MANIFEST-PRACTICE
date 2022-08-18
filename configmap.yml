@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: databasename
+  namespace: prashant
+data:
+  db-name: postgres
