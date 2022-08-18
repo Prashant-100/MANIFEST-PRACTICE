@@ -4,7 +4,7 @@ metadata:
   name: pv-claim
 spec:
   storageClassName: static
-  accessMode:
+  accessModes:
   - ReadWriteOnce:
   resources:
     requests:

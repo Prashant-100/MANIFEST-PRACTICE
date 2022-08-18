@@ -29,6 +29,8 @@ kubectl get pods -n <namespace_name>
 kubectl delete pods <podname> -n <namespace_name> 
 kubectl delete namespace <namespace_name>
 
+kubectl get pv
+
 kubectl get nodes --show-labels
 kubectl label nodes <ip address> instance=<label_name>
 

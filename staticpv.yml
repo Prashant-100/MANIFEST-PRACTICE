@@ -4,7 +4,7 @@ metadata:
   name: pv-vol
 spec:
   storageClassName: static
-  accessMode:
+  accessModes:
   - ReadWriteOnce:
   hostPath:
     path: /tmp/nginx
