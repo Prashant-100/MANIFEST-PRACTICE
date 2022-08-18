@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nodeselector
+  labels:
+    app: web
+spec:
+  containers:
+  - name: webserver
+    image: nginx:latest
+    ports:
+    - containerPort: 80
+  tolerations:
+  - key: "test"
+    operator: "Equal"
+    value: "taint"
+    effect: "NoSchedule"

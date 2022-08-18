@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-vol
+spec:
+  storageClassName: static
+  accessMode:
+  - ReadWriteOnce:
+  hostPath:
+    path: /tmp/nginx
+  capacity:
+    storage: 1Gi
