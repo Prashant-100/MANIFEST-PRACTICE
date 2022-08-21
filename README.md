@@ -71,8 +71,9 @@ kubectl describe secret $(kubectl describe sa <service_account_name> | grep Toke
 Step5: Set the credential for the serviceaccount
 kubectl config set-credentials <service_account_name> --token=$<variablename>
 
-
+Step6: Create a context for the serviceaccount
 kubectl get contexts
+kubectl config set-context <context_name> --cluster=kubernetes --user=<service_account_name>
 kubectl config use-context <context_name>
 
 
