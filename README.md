@@ -47,6 +47,31 @@ kubectl describe configmap/<configmap_name> -n <namespace_name>
 kubectl create configmap <configmap_name> -n <namespace_name> --from-literal <key>=<value>
 kubectl create secret genric <secret_name> --from-literal <key>=<value>
 
+Step1:
+kubectl create sa <service_account_name>
+
+Step2: Get the secret token generated for serviceaccount 
+kubectl describe sa <service_account_name>
+## here we get a token for the secret "<service_account_name>-token-*****"
+kubectl get secrets
+
+Step3: Get the token value for the secret
+kubectl describe secret <secret token from step2>
+kubectl describe secret <service_account_name>-token-*****
+
+Step4: Assign the token value from secret to some variable
+<variablename>="<secret_value>"
+
+# Single Command to do 4 steps
+kubectl describe secret $(kubectl describe sa <service_account_name> | grep Token | awk '{print $NF}') | grep token: | awk '{print $NF}'
+
+# Now assigning the token value using the above command
+<variablename>="$(<above_command>)"
+
+Step5: Set the credential for the serviceaccount
+kubectl config set-credentials <service_account_name> --token=$<variablename>
+
+
 kubectl get contexts
 kubectl config use-context <context_name>
 
