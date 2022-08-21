@@ -46,4 +46,13 @@ kubectl create configmap <configmap_name> --from-literal <key>=<value>
 kubectl describe configmap/<configmap_name> -n <namespace_name>
 kubectl create configmap <configmap_name> -n <namespace_name> --from-literal <key>=<value>
 kubectl create secret genric <secret_name> --from-literal <key>=<value>
+
+kubectl get contexts
+kubectl config use-context <context_name>
+
+
+kubectl create clusterrole my-cluster-role --verb=get --verb=list --verb=watch --resource=pods --resource=secrets
+kubectl create clusterrolebinding my-cluster-role-binding --serviceaccount=default:devops --clusterrole=my-cluster-role-binding 
+kubectl get clusterrole
+
 ```
