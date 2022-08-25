@@ -25,7 +25,6 @@ kubectl get namespace
 kubectl get pods -n <namespace_name>
 kubectl create namespace <namespace_name>
 kubectl apply -f <podname>.yaml -n <namespace_name>
-kubectl get pods -n <namespace_name>
 kubectl delete pods <podname> -n <namespace_name> 
 kubectl delete namespace <namespace_name>
 
